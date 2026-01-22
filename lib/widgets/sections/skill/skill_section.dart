@@ -70,7 +70,7 @@ class _SkillsSectionState extends State<SkillsSection> {
                 crossAxisCount: 2, // 한 줄에 2개
                 crossAxisSpacing: 10.0, // 아이템 간 가로 간격
                 mainAxisSpacing: 10.0, // 아이템 간 세로 간격
-                childAspectRatio: 2.5, // 아이템의 가로:세로 비율 (스킬바 길이에 맞춰 조절)
+                childAspectRatio: 2.0, // 아이템의 가로:세로 비율 (스킬바 길이에 맞춰 조절)
               ),
               itemCount: _skillData.length,
               itemBuilder: (context, index) {

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:jihun_flutter_resume/widgets/sections/timeline/section_widget/time_line_item.dart';
 import '../../../constants/app_sizes.dart';
@@ -17,40 +18,54 @@ class TimelineSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool isMobile = screenWidth < AppSizes.mobileBreakpoint; // 모바일 체크 필요
+    bool isMobile = screenWidth < AppSizes.mobileBreakpoint;
 
-    // [수정된 로직 설명]
-    // 1. HomeScreen의 컨텐츠 영역 너비를 구합니다.
-    //    - 모바일이면 화면 전체(1.0), 아니면 60%(0.6)를 사용합니다.
+    // HomeScreen의 컨텐츠 영역 너비 설정
     double contentWidth = isMobile ? screenWidth : screenWidth * 0.6;
 
-    // 2. 컨텐츠 영역 너비를 5로 나눕니다.
-    //    (모바일에서는 너무 좁아지므로 모바일은 2.5개 정도 보이게 조정하는 것이 좋습니다)
-    double itemWidth = isMobile
-        ? contentWidth / 2.2  // 모바일: 약 2개 반 보이게 (가독성 확보)
-        : contentWidth / 5;   // 데스크톱: 정확히 5개 보이게
+    // 데스크톱용 아이템 너비 (정확히 5개 보이게)
+    double desktopItemWidth = contentWidth / 5;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SectionTitle(title: AppStrings.timeLineTitle, color: accentColor),
+        const SizedBox(height: 10),
 
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-
-            children: AppStrings.timelineEvents.map((event) => SizedBox(
-              width: itemWidth,
-              child: TimelineItem(
-                event: event,
-                accentColor: accentColor,
-                textColor: textColor,
-              ),
-            )).toList(),
+        // 모바일일 때는 세로(Column), 데스크톱일 때는 가로(Row + Scroll)
+        if (isMobile)
+          Column(
+            children: AppStrings.timelineEvents.map((event) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 12.0), // 아이템 간 간격
+                child: SizedBox(
+                  width: double.infinity, // 가로 꽉 차게
+                  child: TimelineItem(
+                    event: event,
+                    accentColor: accentColor,
+                    textColor: textColor,
+                  ),
+                ),
+              );
+            }).toList(),
+          )
+        else
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: AppStrings.timelineEvents.map((event) => SizedBox(
+                width: desktopItemWidth,
+                child: TimelineItem(
+                  event: event,
+                  accentColor: accentColor,
+                  textColor: textColor,
+                ),
+              )).toList(),
+            ),
           ),
-        ),
+
         const SizedBox(height: AppSizes.sectionSpacing),
       ],
     );
