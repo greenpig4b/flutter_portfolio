@@ -23,7 +23,7 @@ class TimelineItem extends StatelessWidget {
     final String roleOrInstitution = event["roleOrInstitution"] ?? '';
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.08),

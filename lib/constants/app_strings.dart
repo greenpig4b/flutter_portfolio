@@ -55,31 +55,31 @@ class AppStrings {
       "name": "Flutter & Dart",
       "percentage": 0.9,
       "description": "웹 디자인 경험을 통해 익힌 레이아웃 구성 감각은 Flutter의 위젯 기반 UI 구조를 직관적으로 이해하는 데 큰 자산이 되었습니다. \n"
-                     "그린컴퓨터 아카데미에서 본격적으로 학습하며, 단일 코드베이스로 iOS와 Android를 동시에 완벽하게 구현할 수 있다는 점에 깊이 매료되었습니다.",
+          "그린컴퓨터 아카데미에서 본격적으로 학습하며, 단일 코드베이스로 iOS와 Android를 동시에 완벽하게 구현할 수 있다는 점에 깊이 매료되었습니다.",
       "imagePath": "assets/images/flutter.svg",
     },
     {
       "name": "Firebase & Superbase",
       "percentage": 0.75,
       "description":"현재 보시는 이 포트폴리오 사이트는 Firebase Hosting을 통해 빠르고 안정적으로 배포하여 운영 중입니다. \n"
-                    "또한, 현재 진행 중인 개인 프로젝트에서는 Supabase를 도입하여 PostgreSQL 기반의 정교한 데이터 모델링과 인증 시스템을 직접 구현하고 있습니다.\n"
-                    "프로젝트의 성격에 맞춰 최적의 백엔드 도구를 선정하고 통합하는 풀스택 역량을 키워가고 있습니다.",
+          "또한, 현재 진행 중인 개인 프로젝트에서는 Supabase를 도입하여 PostgreSQL 기반의 정교한 데이터 모델링과 인증 시스템을 직접 구현하고 있습니다.\n"
+          "프로젝트의 성격에 맞춰 최적의 백엔드 도구를 선정하고 통합하는 풀스택 역량을 키워가고 있습니다.",
       "imagePath": "assets/images/firebase.svg",
     },
     {
       "name": "Git & GitHub",
       "percentage": 0.8,
       "description": "그린컴퓨터 아카데미에서 팀 프로젝트를 수행하며 Git과 GitHub를 처음 접했고, 단순한 코드 저장을 넘어 협업의 필수 도구임을 깨달았습니다. \n"
-                     "무엇보다 Pull Request와 코드 리뷰, 그리고 충돌(Conflict) 해결 과정을 직접 경험하며 팀원들과 기술적으로 소통하고 효율적으로 협업하는 역량을 키우는 데 큰 밑거름이 되었습니다.",
+          "무엇보다 Pull Request와 코드 리뷰, 그리고 충돌(Conflict) 해결 과정을 직접 경험하며 팀원들과 기술적으로 소통하고 효율적으로 협업하는 역량을 키우는 데 큰 밑거름이 되었습니다.",
       "imagePath": "assets/images/git.svg",
     },
     {
       "name": "UI/UX Design",
       "percentage": 0.9,
       "description": "웹디자인 회사에서 근무하며, \n"
-                     "다양한 클라이언트의 요구사항을 시각적으로 구현하는 과정에서 레이아웃, 컬러 시스템에 대한 깊은 이해를 쌓았습니다. \n"
-                     "이러한 디자인 베이스는 현재 개발자로서 디자이너와 원활하게 소통하고, 의도한 디자인을 만들 수 있는 역량을 키울 수 있었습니다.",
-      "imagePath": "assets/images/ui_ux.svg",
+          "다양한 클라이언트의 요구사항을 시각적으로 구현하는 과정에서 레이아웃, 컬러 시스템에 대한 깊은 이해를 쌓았습니다. \n"
+          "이러한 디자인 베이스는 현재 개발자로서 디자이너와 원활하게 소통하고, 의도한 디자인을 만들 수 있는 역량을 키울 수 있었습니다.",
+      "imagePath": "assets/images/figma.svg",
     },
   ];
 
@@ -87,25 +87,11 @@ class AppStrings {
   static const String timeLineTitle = "TIMELINE";
   static final List<Map<String, String>> timelineEvents = [
     {
-      "title": "스마트기기 UX&UI 디자인과정",
-      "period": "2021.04 - 2021.09",
-      "roleOrInstitution": "그린컴퓨터",
-      "description": "스마트기기UX&UI디자인은 스마트기기에 적용 가능한 서비스에 대하여 \n "
-                     "사용자 경험과 니즈를 분석하여 정보설계, UI설계, 화면설계 등 수행하였습니다"
-    },
-    {
       "title": "웹디자인 주임",
       "period": "2021.12 - 2023.09",
       "roleOrInstitution": "비즈메이커",
       "description": "전 직장에서 웹디자인 에이전시에서 근무하며 다양한 프로젝트를 통해 실제 사용자 피드백을 반영하고,\n"
           "웹 표준과 접근성을 고려한 디자인을 구현하며 깊이 있는 UX/UI 디자인 경험을 쌓았습니다."
-    },
-    {
-      "title": "java & Spring Boot 풀스텍 개발자 양성과정",
-      "period": "2023.11 - 2024.08",
-      "roleOrInstitution": "그린컴퓨터",
-      "description": "전 직장에서 웹디자이너로 근무하며 쌓은 UI/UX 경험을 바탕으로, 아이디어를 직접 구현하고 \n"
-                     "서비스의 깊은 구조를 이해하고자 개발자로 전향하기 위해 그린컴퓨터 아카데미에서 개발교육을 수료하였습니다."
     },
     {
       "title": "ERP & MES 사원",
@@ -131,7 +117,7 @@ class AppStrings {
       "title": "여행가나?여어떻노",
       "subtitle": "Flutter App",
       "description": "그린아카데미에서 처음시작한 Flutter 개발 프로젝트이며, \n"
-                     "여기어때를 카피하였으며 숙소를 예약 및 결제 할 수 있는 중계 플랫폼입니다.",
+          "여기어때를 카피하였으며 숙소를 예약 및 결제 할 수 있는 중계 플랫폼입니다.",
       "videoPath": "assets/videos/yeogi_pay.gif",
       "githubUrl": "https://github.com/donghunseol/yeogi_copy"
     },
@@ -139,8 +125,8 @@ class AppStrings {
       "title": "Pink 가계부",
       "subtitle": "Flutter App",
       "description": "두번째로 시작한 Flutter 개발 프로젝트이며, \n"
-                     "나의 소비 내역 및 패턴을 알 수 있으며, Ai가 소비자의 소비패턴을 분석하여 전달과 비교하여 \n"
-                     "어느 카테고리에서 소비와 절약이 일어났는지 요약해주는 어플입니다.",
+          "나의 소비 내역 및 패턴을 알 수 있으며, Ai가 소비자의 소비패턴을 분석하여 전달과 비교하여 \n"
+          "어느 카테고리에서 소비와 절약이 일어났는지 요약해주는 어플입니다.",
       "videoPath": "assets/videos/pink_account.gif",
       "githubUrl": "https://github.com/greenpig4b/pink-project-flutter"
     },
@@ -148,7 +134,7 @@ class AppStrings {
       "title": "OffPeak",
       "subtitle": "Flutter App",
       "description": "Wanted Laas & 한국관광공사 공공데이터에서 주체한 해커톤 프로젝트이며\n"
-                     "Ai와 실시간 데이터를 활용하여 혼잡하지 않는 여행지를 추천해주는 스마트 여행앱 입니다. \n",
+          "Ai와 실시간 데이터를 활용하여 혼잡하지 않는 여행지를 추천해주는 스마트 여행앱 입니다. \n",
       "videoPath": "assets/videos/off_peak.gif",
       "githubUrl": "https://github.com/hillview0303/offpeak"
     },
@@ -156,9 +142,17 @@ class AppStrings {
       "title": "웹 포트폴리오",
       "subtitle": "Flutter Web",
       "description": "Flutter Web으로 개발되어 데스크톱과 모바일 환경에 완벽히 대응하는 반응형 웹사이트입니다.\n"
-                     "개인의 역량과 경험을 효과적으로 전달하기 위해 UI/UX 설계부터 기능 구현, 배포까지 전 과정을 주도적으로 수행했습니다.",
+          "개인의 역량과 경험을 효과적으로 전달하기 위해 UI/UX 설계부터 기능 구현, 배포까지 전 과정을 주도적으로 수행했습니다.",
       "videoPath": "assets/images/resume_screenshot.png",
-      "githubUrl": "",
+      "githubUrl": "https://github.com/greenpig4b/flutter_portfolio",
+    },
+    {
+      "title": "Pickle ",
+      "subtitle": "Flutter App",
+      "description": "현재 개발 진행중인 Flutter App 프로젝트이며,\n"
+          "여행 중 필요한 환율 정보를 빠르게 확인할 수 있는 앱입니다. 실시간 환율 비교, OCR 영수증 인식, 나만의 커스텀 환율 계산기 등 해외여행에 꼭 필요한 기능을 한곳에 담았습니다.",
+      "videoPath": "assets/images/pickle_home.png",
+      "githubUrl": "https://github.com/hillview0303/Pickle",
     },
   ];
 

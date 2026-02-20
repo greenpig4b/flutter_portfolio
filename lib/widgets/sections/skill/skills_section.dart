@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart'; // SvgPicture 사용
 import 'package:jihun_flutter_resume/widgets/sections/skill/section_widgets/skill_progress_bar.dart';
-
 import '../../../constants/app_sizes.dart';
-import '../../../constants/app_strings.dart'; // AppStrings.skillData 사용
-import '../../../constants/app_text_styles.dart';
+import '../../../constants/app_strings.dart';
 import '../../common/custom_widgets.dart';
-import 'section_widgets/skill_detail_display.dart'; // SkillDetailDisplay import
+import 'section_widgets/skill_detail_display.dart';
 
 class SkillsSection extends StatefulWidget {
   final Color accentColor;

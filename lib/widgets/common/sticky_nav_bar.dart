@@ -65,23 +65,26 @@ class StickyNavBar extends StatelessWidget {
                   ),
                   if (!isMobile)
                     Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: AppStrings.navMenuItems.map((menuItem) {
-                          GlobalKey? keyToScroll = sectionKeys[menuItem];
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: AppStrings.navMenuItems.map((menuItem) {
+                            GlobalKey? keyToScroll = sectionKeys[menuItem];
 
-                          return TextButton(
-                            onPressed: keyToScroll != null ? () => scrollToSection(keyToScroll) : null,
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              // ✨ TextButton 내부 패딩도 조금 더 줄여볼 수 있습니다.
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                              textStyle: AppTextStyles.navButtonTextStyle.copyWith(fontSize: 16),
-                              overlayColor: Colors.white.withOpacity(0.1),
-                            ),
-                            child: Text(menuItem),
-                          );
-                        }).toList(),
+                            return TextButton(
+                              onPressed: keyToScroll != null ? () => scrollToSection(keyToScroll) : null,
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                                textStyle: AppTextStyles.navButtonTextStyle.copyWith(fontSize: 16),
+                                overlayColor: Colors.white.withOpacity(0.1),
+                              ),
+                              child: Text(menuItem),
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ),
                 ],

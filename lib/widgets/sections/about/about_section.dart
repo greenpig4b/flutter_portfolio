@@ -19,11 +19,22 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // [이미지 위젯]
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // [이미지 위젯] - 화면 크기에 비례하여 자동 조절
+    double imageSize = isMobile
+        ? (screenWidth * 0.6).clamp(150, 350)   // 모바일: 화면의 60%, 최소 150 최대 350
+        : (screenWidth * 0.2).clamp(200, 500);   // 데스크톱: 화면의 20%, 최소 200 최대 500
+
     Widget imagePart = AboutProfileImage(
       accentColor: accentColor,
-      size: isMobile ? 300 : 500,
+      size: imageSize,
     );
+
+    // 카운터 폰트 크기도 화면에 비례
+    double countFontSize = isMobile ? 36 : (screenWidth * 0.03).clamp(30, 60);
+    double labelFontSize = isMobile ? 13 : (screenWidth * 0.01).clamp(12, 18);
+    double bodyFontSize = isMobile ? 14 : (screenWidth * 0.01).clamp(14, 18);
 
     Widget textPart = Column(
       crossAxisAlignment:  CrossAxisAlignment.start,
@@ -33,14 +44,14 @@ class AboutSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start, // ▼▼▼ [수정 2] 모바일일 때 카운터 중앙 정렬 ▼▼▼
           children: [
             // Web Design Count
-            Column(
+            Flexible(child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   AppStrings.aboutWebDesignCount,
                   style: AppTextStyles.aboutCount.copyWith(
                     color: accentColor,
-                    fontSize: isMobile ? 40 : 60,
+                    fontSize: countFontSize,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -48,23 +59,23 @@ class AboutSection extends StatelessWidget {
                   AppStrings.aboutWebProjectText,
                   style: AppTextStyles.aboutProjectText.copyWith(
                     color: textColor,
-                    fontSize: isMobile ? 14 : 18,
+                    fontSize: labelFontSize,
                   ),
                 ),
               ],
-            ),
+            )),
 
             SizedBox(width: isMobile ? 20 : AppSizes.largeSpacing),
 
             // Flutter Count
-            Column(
+            Flexible(child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   AppStrings.aboutFlutterCount,
                   style: AppTextStyles.aboutCount.copyWith(
                     color: accentColor,
-                    fontSize: isMobile ? 40 : 60,
+                    fontSize: countFontSize,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -72,11 +83,11 @@ class AboutSection extends StatelessWidget {
                   AppStrings.aboutFlutterProjectText,
                   style: AppTextStyles.aboutProjectText.copyWith(
                     color: textColor,
-                    fontSize: isMobile ? 14 : 18,
+                    fontSize: labelFontSize,
                   ),
                 ),
               ],
-            ),
+            )),
           ],
         ),
 
@@ -87,7 +98,7 @@ class AboutSection extends StatelessWidget {
           AppStrings.aboutMeDescriptionTitle,
           style: AppTextStyles.aboutMeSubtitleStyle.copyWith(
             color: textColor,
-            fontSize: isMobile ? 18 : 22,
+            fontSize: isMobile ? 18 : (screenWidth * 0.012).clamp(16, 22),
           ),
           textAlign: TextAlign.left,
         ),
@@ -96,7 +107,7 @@ class AboutSection extends StatelessWidget {
           AppStrings.aboutMeDescription,
           style: AppTextStyles.bodyText.copyWith(
             color: textColor,
-            fontSize: isMobile ? 15 : 18,
+            fontSize: bodyFontSize,
           ),
           textAlign: TextAlign.left,
         ),

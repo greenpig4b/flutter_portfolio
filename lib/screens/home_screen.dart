@@ -9,7 +9,7 @@ import '../widgets/sections/about/about_section.dart';
 import '../widgets/sections/hero/hero_section.dart';
 import '../widgets/common/custom_widgets.dart';
 import '../widgets/sections/project/project_section.dart';
-import '../widgets/sections/skill/skill_section.dart';
+import '../widgets/sections/skill/skills_section.dart';
 import '../widgets/sections/timeline/timeline_section.dart';
 
 
@@ -33,20 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late final Map<String, GlobalKey> _sectionKeys;
 
-  bool _isTimelineSectionActive = false;
-  bool _isTimelineHovered = false;
-
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
       setState(() {
         _scrollPosition = _scrollController.offset;
-        _updateTimelineSectionActiveState();
       });
-    });
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _updateTimelineSectionActiveState();
     });
 
     _sectionKeys = {
@@ -76,30 +69,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void _updateTimelineSectionActiveState() {
-    final RenderBox? renderBox = _timelineSectionKey.currentContext?.findRenderObject() as RenderBox?;
-    if (renderBox == null) {
-      if (_isTimelineSectionActive) {
-        setState(() { _isTimelineSectionActive = false; });
-      }
-      return;
-    }
-
-    final offset = renderBox.localToGlobal(Offset.zero);
-    final size = renderBox.size;
-
-    bool isCurrentlyActive = (offset.dy < MediaQuery.of(context).size.height &&
-        offset.dy + size.height > 0) &&
-        (offset.dy > MediaQuery.of(context).size.height * 0.2 &&
-            offset.dy < MediaQuery.of(context).size.height * 0.8);
-
-    if (_isTimelineSectionActive != isCurrentlyActive) {
-      setState(() {
-        _isTimelineSectionActive = isCurrentlyActive;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -107,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     double navT = (_scrollPosition / 100).clamp(0, 1);
 
-    // ✨ 핵심 수정: startWidth를 다른 섹션과 동일한 0.6 (60%)으로 변경합니다.
     double startWidth = screenWidth * (isMobile ? 0.95 : 0.6);
 
     double endWidth = screenWidth;
