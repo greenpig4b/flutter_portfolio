@@ -152,7 +152,7 @@ class AppStrings {
       "description": "현재 개발 진행중인 Flutter App 프로젝트이며,\n"
           "여행 중 필요한 환율 정보를 빠르게 확인할 수 있는 앱입니다. 실시간 환율 비교, OCR 영수증 인식, 나만의 커스텀 환율 계산기 등 해외여행에 꼭 필요한 기능을 한곳에 담았습니다.",
       "videoPath": "assets/images/pickle_home.png",
-      "githubUrl": "https://github.com/hillview0303/Pickle",
+      "githubUrl": "",
     },
   ];
 
