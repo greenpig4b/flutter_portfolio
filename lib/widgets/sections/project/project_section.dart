@@ -35,6 +35,7 @@ class ProjectsSection extends StatelessWidget {
           textColor: textColor,
           isMobile: isMobile,
           githubUrl: project['githubUrl']!,
+          playStoreUrl: project['playStoreUrl'],  // 이 줄 추가
         )).toList(),
 
         const SizedBox(height: AppSizes.sectionSpacing),

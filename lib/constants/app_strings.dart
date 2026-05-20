@@ -147,12 +147,14 @@ class AppStrings {
       "githubUrl": "https://github.com/greenpig4b/flutter_portfolio",
     },
     {
-      "title": "Pickle ",
-      "subtitle": "Flutter App",
-      "description": "현재 개발 진행중인 Flutter App 프로젝트이며,\n"
-          "여행 중 필요한 환율 정보를 빠르게 확인할 수 있는 앱입니다. 실시간 환율 비교, OCR 영수증 인식, 나만의 커스텀 환율 계산기 등 해외여행에 꼭 필요한 기능을 한곳에 담았습니다.",
-      "videoPath": "assets/images/pickle_home.png",
+      "title": "Pickle",
+      "subtitle": "Flutter App · Released",
+      "description": "해외여행에 필요한 모든 것을 담은 출시작입니다.\n"
+          "실시간 환율 비교, OCR 영수증 자동 인식, 그룹 정산, 환율 알림 등 여행 중 필요한 기능을 한곳에 모았습니다.\n"
+          "한국어/영어/일본어/스페인어/중국어 5개 언어를 지원하며, Google Play Store에 정식 출시되었습니다.",
+      "videoPath": "assets/images/pickle_logo.png",
       "githubUrl": "",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.nestplanet.pickle",
     },
   ];
 

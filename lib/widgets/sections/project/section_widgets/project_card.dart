@@ -12,8 +12,8 @@ class ProjectCard extends StatelessWidget {
   final Color accentColor;
   final Color textColor;
   final bool isMobile;
-  // ✨ 수정: githubUrl을 nullable로 변경하고, required 제거
-  final String? githubUrl; // 이제 githubUrl은 선택 사항입니다.
+  final String? githubUrl; // 선택 사항
+  final String? playStoreUrl; // ✨ 추가: Play Store 링크 (선택 사항)
 
   const ProjectCard({
     Key? key,
@@ -24,22 +24,61 @@ class ProjectCard extends StatelessWidget {
     required this.accentColor,
     required this.textColor,
     required this.isMobile,
-    this.githubUrl, // required 키워드 제거
+    this.githubUrl,
+    this.playStoreUrl, // ✨ 추가
   }) : super(key: key);
 
-  // ▼▼▼ [수정] URL 열기 비동기 함수 - null 체크 추가 ▼▼▼
-  Future<void> _launchUrl(String? url) async { // String? url로 변경
-    if (url == null || url.isEmpty) { // url이 없거나 비어있으면 아무것도 하지 않음
+  // URL 열기 비동기 함수 - null 체크 추가
+  Future<void> _launchUrl(String? url) async {
+    if (url == null || url.isEmpty) {
       return;
     }
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.platformDefault)) {
-      // 에러 처리 (예: 스낵바 메시지)
-      // print('Could not launch $url'); // 디버그용
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(content: Text('Could not launch $url')),
-      // );
+      // 에러 처리
     }
+  }
+
+  // ✨ 추가: 버튼들을 만드는 공통 위젯
+  Widget _buildActionButtons() {
+    final bool showGithubButton = githubUrl != null && githubUrl!.isNotEmpty;
+    final bool showPlayStoreButton = playStoreUrl != null && playStoreUrl!.isNotEmpty;
+
+    if (!showGithubButton && !showPlayStoreButton) {
+      return const SizedBox.shrink();
+    }
+
+    return Wrap(
+      spacing: 12,
+      runSpacing: 12,
+      alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
+      children: [
+        if (showGithubButton)
+          OutlinedButton.icon(
+            onPressed: () => _launchUrl(githubUrl),
+            icon: const Icon(Icons.code),
+            label: const Text("View Github"),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: accentColor,
+              side: BorderSide(color: accentColor),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              textStyle: AppTextStyles.bodyText.copyWith(fontSize: isMobile ? 14 : 16),
+            ),
+          ),
+        if (showPlayStoreButton)
+          ElevatedButton.icon(
+            onPressed: () => _launchUrl(playStoreUrl),
+            icon: const Icon(Icons.android),
+            label: const Text("Play Store"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: accentColor,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              textStyle: AppTextStyles.bodyText.copyWith(fontSize: isMobile ? 14 : 16),
+            ),
+          ),
+      ],
+    );
   }
 
   @override
@@ -47,9 +86,6 @@ class ProjectCard extends StatelessWidget {
     double currentTitleFontSize = isMobile ? 24 : 32;
     double currentSubtitleFontSize = isMobile ? 14 : 16;
     double currentDescriptionFontSize = isMobile ? 14 : AppTextStyles.bodyText.fontSize!;
-
-    // ▼▼▼ [추가] GitHub 버튼 표시 여부 판단
-    final bool showGithubButton = githubUrl != null && githubUrl!.isNotEmpty;
 
     return Container(
       margin: EdgeInsets.only(bottom: isMobile ? AppSizes.mediumSpacing : 60),
@@ -122,19 +158,7 @@ class ProjectCard extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
-              // ✨ 수정: showGithubButton이 true일 때만 버튼 표시
-              if (showGithubButton)
-                OutlinedButton.icon(
-                  onPressed: () => _launchUrl(githubUrl),
-                  icon: const Icon(Icons.link),
-                  label: const Text("View Github"),
-                  style: OutlinedButton.styleFrom(
-                      foregroundColor: accentColor,
-                      side: BorderSide(color: accentColor),
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                      textStyle: AppTextStyles.bodyText.copyWith(fontSize: isMobile ? 14 : 16)
-                  ),
-                ),
+              _buildActionButtons(), // ✨ 수정: 공통 위젯 사용
             ],
           ),
         ],
@@ -202,19 +226,7 @@ class ProjectCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                // ✨ 수정: showGithubButton이 true일 때만 버튼 표시
-                if (showGithubButton)
-                  OutlinedButton.icon(
-                    onPressed: () => _launchUrl(githubUrl),
-                    icon: const Icon(Icons.link),
-                    label: const Text("View Github"),
-                    style: OutlinedButton.styleFrom(
-                        foregroundColor: accentColor,
-                        side: BorderSide(color: accentColor),
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                        textStyle: AppTextStyles.bodyText.copyWith(fontSize: isMobile ? 14 : 16)
-                    ),
-                  )
+                _buildActionButtons(), // ✨ 수정: 공통 위젯 사용
               ],
             ),
           ),
